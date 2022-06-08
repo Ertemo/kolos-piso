@@ -18,7 +18,6 @@ Klasa1::Klasa1()
     sprite.setPosition(sf::Vector2f(100.f,100.f));
 
     //zaladuj teksture do spirtea
-    sf::Texture tekstura;
     if (!tekstura.loadFromFile("plik.png"))
     {
         std::cout<<"NIE UDALO SIE ZALADOWAC TESKTURY"<<std::endl;

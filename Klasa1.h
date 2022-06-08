@@ -11,6 +11,7 @@ class Klasa1
         Klasa1();
         void display_shapes(sf::RenderWindow &window);
     private:
+        sf::Texture tekstura;
         sf::Sprite sprite;
         sf::RectangleShape prostokat;
         sf::CircleShape kolo;
