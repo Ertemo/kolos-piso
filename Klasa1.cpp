@@ -1,38 +1,48 @@
 #include "Klasa1.h"
 
 //konstruktor
-Klasa1::Klasa1()
+Player::Player()
 {
+    sf::Texture tekstura;
     //ustaw kolory 
-    prostokat.setFillColor(sf::Color::White);
+    paletka.setFillColor(sf::Color::White);
     kolo.setFillColor(sf::Color::White);
 
     //ustaw rozmiar float x float
-    prostokat.setSize(sf::Vector2f(10.f,10.f));
+    paletka.setSize(sf::Vector2f(70.f,10.f));
     //ustaw promien
     kolo.setRadius(10.f);
 
     //ustaw pozycje
-    prostokat.setPosition(sf::Vector2f(0.f,0.f));
+    paletka.setPosition(sf::Vector2f(0.f,590.f));
     kolo.setPosition(sf::Vector2f(50.f,50.f));
     sprite.setPosition(sf::Vector2f(100.f,100.f));
 
     //zaladuj teksture do spirtea
-    if (!tekstura.loadFromFile("plik.png"))
-    {
-        std::cout<<"NIE UDALO SIE ZALADOWAC TESKTURY"<<std::endl;
-    }
-    else
-    {
-        //zaladuj teksture do spritea
-        //TEKSTURA ZOSTANIE ZAPISANA DO SPIRTEA I NIE JEST DALEJ POTRZEBNA
-        sprite.setTexture(tekstura);
-    }
+    position = 35.f;
+    length_right = 35.f;
+    length_left = 35.f;
 }
 
-void Klasa1::display_shapes(sf::RenderWindow &window)
+void Player::display_shapes(sf::RenderWindow &window)
 {
-    window.draw(prostokat);
-    window.draw(kolo);
-    window.draw(sprite);
+    window.draw(paletka);
+}
+
+void Player::step(bool left)
+{
+    float velocity = 10.f;
+    paletka.setSize(sf::Vector2f(length_left + length_right,10.f));
+
+    if (position + length_right < 600.f && left == false)
+    { 
+        position = position + velocity;
+        paletka.setPosition(sf::Vector2f(position - length_left, 590.f));
+    }
+    if (position - length_left > 0.f && left == true)
+    {
+        position = position - velocity;
+        paletka.setPosition(sf::Vector2f(position - length_left, 590.f));
+    }
+    
 }

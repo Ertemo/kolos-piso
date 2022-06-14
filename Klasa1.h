@@ -4,15 +4,18 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-class Klasa1
+class Player
 {
     public:
         //konstruktor
-        Klasa1();
+        Player();
         void display_shapes(sf::RenderWindow &window);
+        void step(bool left);
+        float position;
+        float length_right;
+        float length_left;
+        sf::RectangleShape paletka;
     private:
-        sf::Texture tekstura;
         sf::Sprite sprite;
-        sf::RectangleShape prostokat;
         sf::CircleShape kolo;
 };

@@ -9,6 +9,7 @@
                 "-g",
                 "${file}",
                 "${fileDirname}/Klasa1.cpp",
+                "${fileDirname}/Ball.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}",
                 "-lsfml-window",
